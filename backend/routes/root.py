@@ -1,11 +1,8 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, send_from_directory
 from models.google_ai import GoogleAI
+import os
 
 root = Blueprint('root', __name__)
-
-@root.route('/')
-def home():
-    return "Hello from Blueprint!"
 
 
 @root.route('/health')
