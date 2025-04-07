@@ -8,6 +8,10 @@ def home():
     return "Hello from Blueprint!"
 
 
+@root.route('/health')
+def health():
+    return "This is health"
+
 @root.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
