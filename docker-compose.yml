@@ -6,3 +6,5 @@ services:
     working_dir: /app/backend
     command: python run.py
     restart: unless-stopped
+    ports:
+      - "5631:5000"

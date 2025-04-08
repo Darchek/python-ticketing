@@ -9,3 +9,4 @@ COPY backend /app/backend
 # Instala dependencias
 RUN pip install -r requirements.txt
 
+EXPOSE 5000
