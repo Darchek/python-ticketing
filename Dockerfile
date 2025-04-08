@@ -2,8 +2,7 @@ FROM python:3.12-slim
 
 WORKDIR /app/backend
 
-COPY backend /app/backend
-COPY frontend /app/frontend
+COPY . /app
 
 RUN pip install -r requirements.txt
 
