@@ -3,8 +3,8 @@ version: "3.9"
 services:
   python-white-ticket:
     build: .
-    working_dir: /app/backend
-    command: python run.py
+    working_dir: /app
+    command: python backend/run.py
     restart: unless-stopped
     ports:
       - "5631:5000"
