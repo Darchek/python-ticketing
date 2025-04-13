@@ -1,0 +1,131 @@
+{
+  "invoice_number": null,
+  "date": "2025-04-05",
+  "vendor": {
+    "name": "None",
+    "address": "None"
+  },
+  "table": "M4",
+  "diners": 10,
+  "items": [
+    {
+      "name": "INDIAN FOR TWO",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 41.5
+    },
+    {
+      "name": "Jaljeera con cerveza",
+      "quantity": 2.0,
+      "unit_price": null,
+      "price": 15.0
+    },
+    {
+      "name": "Jaljeera Normal",
+      "quantity": 3.0,
+      "unit_price": null,
+      "price": 15.0
+    },
+    {
+      "name": "Makhani",
+      "quantity": 4.0,
+      "unit_price": null,
+      "price": 52.0
+    },
+    {
+      "name": "Tikka masala",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 12.5
+    },
+    {
+      "name": "Arroz Basmati",
+      "quantity": 4.0,
+      "unit_price": null,
+      "price": 12.0
+    },
+    {
+      "name": "NAAN NATURAL",
+      "quantity": 3.0,
+      "unit_price": null,
+      "price": 7.5
+    },
+    {
+      "name": "Pakoras",
+      "quantity": 2.0,
+      "unit_price": null,
+      "price": 13.8
+    },
+    {
+      "name": "Agua",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 2.5
+    },
+    {
+      "name": "Caña",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 3.5
+    },
+    {
+      "name": "Curry Korma",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 12.5
+    },
+    {
+      "name": "Naan de Mantequilla",
+      "quantity": 2.0,
+      "unit_price": null,
+      "price": 6.0
+    },
+    {
+      "name": "Fanta Naranja",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 3.0
+    },
+    {
+      "name": "BOMBAY BLISS",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 10.0
+    },
+    {
+      "name": "Biryani",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 13.0
+    },
+    {
+      "name": "Naan de Queso",
+      "quantity": 2.0,
+      "unit_price": null,
+      "price": 7.0
+    },
+    {
+      "name": "Cerveza artesanal",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 4.5
+    },
+    {
+      "name": "Goan Fish",
+      "quantity": 1.0,
+      "unit_price": null,
+      "price": 14.0
+    },
+    {
+      "name": "INDO MOJITO",
+      "quantity": 3.0,
+      "unit_price": null,
+      "price": 30.0
+    }
+  ],
+  "subtotal": 250.27,
+  "taxes_percent": 10.0,
+  "taxes": 25.03,
+  "total": 275.3,
+  "discounts": null
+}
