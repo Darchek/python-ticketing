@@ -2,7 +2,7 @@ from flask import send_file
 from flask.views import MethodView
 from flask_smorest import Blueprint
 from flask_marshmallow import Schema, fields
-from backend.models.google_ai import GoogleAI
+from models.google_ai import GoogleAI
 
 
 blp = Blueprint('invoice', __name__, url_prefix='/api/invoice', description="Invoice operations")

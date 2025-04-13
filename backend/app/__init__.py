@@ -19,8 +19,8 @@ def create_app(config_class='app.config.Config'):
 
     api = Api(app)
 
-    from backend.routes.root import blp as RootRoute
-    from backend.routes.invoice import blp as InvoiceRoute
+    from routes.root import blp as RootRoute
+    from routes.invoice import blp as InvoiceRoute
     api.register_blueprint(RootRoute)
     api.register_blueprint(InvoiceRoute)
 

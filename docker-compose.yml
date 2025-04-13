@@ -3,6 +3,7 @@ version: "3.9"
 services:
   python-white-ticket:
     build: .
+    container_name: white-ticket
     working_dir: /app
     command: python backend/run.py
     restart: unless-stopped

@@ -1,6 +1,6 @@
 from flask import request, jsonify
 from flask_smorest import Blueprint
-from backend.models.google_ai import GoogleAI
+from models.google_ai import GoogleAI
 
 blp = Blueprint('root', __name__)
 
