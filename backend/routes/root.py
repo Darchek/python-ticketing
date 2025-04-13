@@ -1,19 +1,19 @@
-from flask import Blueprint, request, jsonify, send_from_directory
-from models.google_ai import GoogleAI
-import os
+from flask import request, jsonify
+from flask_smorest import Blueprint
+from backend.models.google_ai import GoogleAI
 
-root = Blueprint('root', __name__)
+blp = Blueprint('root', __name__)
 
 
-@root.route('/health')
+@blp.route('/health')
 def health():
     return "This is health"
 
-@root.route('/health2')
+@blp.route('/health2')
 def health():
     return "This is health2"
 
-@root.route('/upload', methods=['POST'])
+@blp.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
         return jsonify({'error': 'No image part'}), 400

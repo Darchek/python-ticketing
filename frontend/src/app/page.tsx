@@ -1,61 +1,82 @@
 "use client";
-import Camera from "@/components/Camera";
-import Image from "next/image";
-import React, { useState, useEffect } from 'react';
-
+import { uploadImage } from "@/lib/api/invoice";
+import React, { useState, useRef } from 'react';
+import BottomDialog from '@/components/BottomDialog';
 
 export default function Home() {
+  const cameraInputRef = useRef<HTMLInputElement | null>(null);
+  const galleryInputRef = useRef<HTMLInputElement | null>(null);
 
-  const [data, setData] = useState('');
+  const [image, setImage] = useState<string | null>(null)
+  const [showDialog, setShowDialog] = useState(false);
 
-  useEffect(() => {
 
-    const fetchData = async () => {
+  const handleChooiseChange = (chooise: string) => {
+    if (chooise === 'gallery') {
+      galleryInputRef.current?.click()
+    } else if (chooise === 'camera') {
+      cameraInputRef.current?.click()
+    }
+  }
 
-      try {
-        const response = await fetch("http://localhost:5000/health");
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e?.target?.files?.[0]
+    if (file) {
+      const imageUrl = URL.createObjectURL(file)
+      setImage(imageUrl)
+      uploadImage(file).then(data => {
+        console.log(data);
+      }).catch(err => {
+        console.log(err);
+      })
 
-        if (!response.ok) {
-          setData(`HTTP error! Status: ${response.status}`);
-          return;
-        }
-
-        const result = await response.text();
-        setData(result);
-
-      } catch (err: unknown) {
-        const error = err as Error;
-        console.error("Error fetching data:", error);
-        setData("Error fetching data");
-      }
-    };
-
-    fetchData();
-
-  }, []);
+    }
+  }
 
 
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-2 pb-10 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            {data}
-          </li>
-        </ol>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <Camera />
-      </footer>
-    </div>
+    <main className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center p-6">
+      <h1 className="text-2xl font-bold mb-6">Select an image</h1>
+
+      <button
+        className="px-4 py-2 bg-blue-600 text-white rounded"
+        onClick={() => setShowDialog(true)}>
+          Upload ticket
+      </button>
+
+      <input
+          type="file"
+          accept="image/*"
+          ref={galleryInputRef}
+          className="hidden"
+          onChange={handleImageChange}
+      />
+
+      <input
+          type="file"
+          accept="image/*"
+          ref={cameraInputRef}
+          className="hidden"
+          capture="environment"
+          onChange={handleImageChange}
+      />    
+
+      {image && (
+        <div className="mt-6">
+          <p className="mb-2 text-center">Preview:</p>
+          <img
+            src={image}
+            alt="Captured or Selected"
+            className="max-w-xs rounded-lg border border-gray-600 shadow-lg"
+          />
+        </div>
+      )}
+
+
+      {showDialog && (
+        <BottomDialog onClose={() => setShowDialog(false)} setChooise={handleChooiseChange} />
+      )}
+    </main>
   );
 }

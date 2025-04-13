@@ -1,8 +1,8 @@
 import io
 from google import genai
 import PIL.Image
-from app.config import Config
-from models.models import Invoice
+from backend.app.config import Config
+from backend.models.invoice import Invoice
 
 
 class GoogleAI:
