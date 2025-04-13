@@ -8,10 +8,12 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-RUN rm -rf /app/* && \
-    git clone https://github.com/Darchek/python-ticketing.git .
+COPY entrypoint.sh /entrypoint.sh
 
-COPY . /app
+RUN chmod +x /entrypoint.sh
+
+RUN rm -rf /app/* && \
+    git clone https://github.com/Darchek/python-ticketing.git /app
 
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir --force-reinstall -r /app/backend/requirements.txt

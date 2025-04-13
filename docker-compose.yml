@@ -5,7 +5,7 @@ services:
     build: .
     container_name: white-ticket
     working_dir: /app
-    command: python backend/run.py
+    command: /entrypoint.sh
     restart: unless-stopped
     ports:
       - "5631:5000"
