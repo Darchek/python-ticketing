@@ -2,7 +2,7 @@ from flask import request, jsonify
 from flask_smorest import Blueprint
 from models.google_ai import GoogleAI
 
-blp = Blueprint('root', __name__)
+blp = Blueprint('root', __name__, url_prefix='/api')
 
 
 @blp.route('/health')
