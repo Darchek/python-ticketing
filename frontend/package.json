@@ -5,7 +5,9 @@
   "scripts": {
     "dev:frontend": "npm run dev",
     "dev:backend": "cd ../backend && \".venv/Scripts/activate.bat\" && python run.py",
+    "prod:backend": "cd ../backend && python run.py",
     "dev:all": "concurrently \"npm:dev:frontend\" \"npm:dev:backend\"",
+    "prod:all": "concurrently \"npm:start\" \"npm:prod:backend\"",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
