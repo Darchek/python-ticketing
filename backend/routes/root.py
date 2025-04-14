@@ -7,7 +7,7 @@ blp = Blueprint('root', __name__)
 
 @blp.route('/health')
 def health():
-    return "Health check"
+    return "Health python server check"
 
 @blp.route('/upload', methods=['POST'])
 def upload_image():
