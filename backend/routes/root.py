@@ -9,10 +9,6 @@ blp = Blueprint('root', __name__)
 def health():
     return "This is health"
 
-@blp.route('/health2')
-def health():
-    return "This is health2"
-
 @blp.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
